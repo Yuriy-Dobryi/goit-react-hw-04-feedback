@@ -7,7 +7,7 @@ export const Statistics = (statistics) => (
       ))}
     </div>
 )
-  
+
 Statistics.propTypes = {
     good: PropTypes.number,
     neutral: PropTypes.number,
