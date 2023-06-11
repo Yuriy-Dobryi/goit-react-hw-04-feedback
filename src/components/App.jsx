@@ -16,14 +16,14 @@ export default function App() {
     bad: setBad
   });
   
-  const setFeedback = (e) => {
+  function setFeedback (e) {
     const { name: feedbackName } = e.target;
     const set = feedbacksRef.current;
 
     set[feedbackName]((prev) => prev + 1);
   };
 
-  const getPositivePercentage = () => {
+  function getPositivePercentage () {
     const DEFAULT_VALUE = 0;
 
     return total
