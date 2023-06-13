@@ -20,7 +20,7 @@ export default function App() {
     const { name: feedbackName } = e.target;
     const set = feedbacksRef.current;
 
-    set[feedbackName]((prev) => prev + 1);
+    set[feedbackName](prev => prev + 1);
   };
 
   function getPositivePercentage () {
