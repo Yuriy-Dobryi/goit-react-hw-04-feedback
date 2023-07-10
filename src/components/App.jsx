@@ -11,7 +11,7 @@ export default function App() {
   );
   const { good, neutral, bad } = feedbacks;
 
-  function setFeedbacksZhenya(e) {
+  function handleOptionClick(e) {
     const { name: feedbackName } = e.target;
 
     setFeedbacks(prev => (
@@ -30,24 +30,28 @@ export default function App() {
   const total = good + neutral + bad;
 
     return (
-      <div className='container'>
+      <div className="container">
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={Object.keys(feedbacks)}
-            setFeedback={setFeedbacksZhenya} />
+            handleOptionClick={handleOptionClick}
+          />
         </Section>
 
         <Section title="Statistics">
-          {total
-            ? <Statistics
+          {total ? (
+            <Statistics
               good={good}
               neutral={neutral}
               bad={bad}
               total={total}
-              positivePercentage={getPositivePercentage()} />
-            : <Notification message="There is no feedback" />}
+              positivePercentage={getPositivePercentage()}
+            />
+          ) : (
+            <Notification message="There is no feedback" />
+          )}
         </Section>
       </div>
-    )
+    );
   
 }
